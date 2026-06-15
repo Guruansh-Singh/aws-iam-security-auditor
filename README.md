@@ -28,3 +28,24 @@ AWS IAM Security Auditor is a cloud security project designed to identify common
 * Dashboard integration
 * Security score calculation
 * Multi-account support
+
+## Development Roadmap
+
+### Phase 1
+
+* Build user and role data parser
+* Create permission analysis logic
+
+### Phase 2
+
+* Detect administrative privileges
+* Flag high-risk configurations
+
+### Phase 3
+
+* Generate security reports
+
+### Phase 4
+
+* Integrate with AWS IAM APIs
+* Add automated auditing capabilities
