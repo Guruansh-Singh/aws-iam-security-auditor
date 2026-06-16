@@ -1,0 +1,18 @@
+[
+    {
+        "username": "admin-user",
+        "role": "Administrator"
+    },
+    {
+        "username": "developer1",
+        "role": "Developer"
+    },
+    {
+        "username": "intern1",
+        "role": "ReadOnly"
+    },
+    {
+        "username": "power-user",
+        "role": "PowerUser"
+    }
+]
