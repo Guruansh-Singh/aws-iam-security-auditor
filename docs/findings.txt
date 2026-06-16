@@ -1,0 +1,7 @@
+AWS IAM Security Audit Report
+===================================
+
+[HIGH RISK] admin-user has Administrator access
+[LOW RISK] developer1 has Developer access
+[LOW RISK] intern1 has ReadOnly access
+[MEDIUM RISK] power-user has PowerUser access
