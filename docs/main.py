@@ -7,16 +7,28 @@ def load_users():
         return json.load(file)
 def audit_users(users):
     findings = []
+    high_risk = 0
+    medium_risk = 0
+    low_risk = 0
     for user in users:
         username = user["username"]
         role = user["role"]
         if role == "Administrator":
             findings.append(f"[HIGH RISK] {username} has Administrator access")
+            high_risk += 1
         elif role == "PowerUser":
             findings.append(f"[MEDIUM RISK] {username} has PowerUser access")
+            medium_risk += 1
         else:
             findings.append(f"[LOW RISK] {username} has {role} access")
-    return findings
+            low_risk += 1
+    summary = {
+        "high": high_risk,
+        "medium": medium_risk,
+        "low": low_risk,
+        "total": len(users)
+    }
+    return findings, summary
 def create_report(findings):
     project_folder = os.path.dirname(os.path.abspath(__file__))
     report_file = os.path.join(project_folder, "findings.txt")
