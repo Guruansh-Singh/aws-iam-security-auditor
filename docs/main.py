@@ -3,15 +3,25 @@ def load_users():
     with open("users.json", "r") as file:
         return json.load(file)
 def audit_users(users):
-    print("\nAWS IAM Security Auditor")
-    print("-" * 30)
+    findings = []
     for user in users:
         username = user["username"]
         role = user["role"]
         if role == "Administrator":
-            print(f"[HIGH RISK] {username} has Administrator access")
+            findings.append(f"[HIGH RISK] {username} has Administrator access")
+        elif role == "PowerUser":
+            findings.append(f"[MEDIUM RISK] {username} has PowerUser access")
         else:
-            print(f"[OK] {username} -> {role}")
-
+            findings.append(f"[LOW RISK] {username} has {role} access")
+    return findings
+def create_report(findings):
+    with open("findings.txt", "w") as report:
+        report.write("AWS IAM Security Audit Report\n")
+        report.write("=" * 35 + "\n\n")
+        for finding in findings:
+            report.write(finding + "\n")
+    print("Audit complete.")
+    print("Report saved to findings.txt")
 users = load_users()
-audit_users(users)
+results = audit_users(users)
+create_report(results)
