@@ -29,17 +29,29 @@ def audit_users(users):
         "total": len(users)
     }
     return findings, summary
-def create_report(findings):
+def create_report(findings, summary):
     project_folder = os.path.dirname(os.path.abspath(__file__))
     report_file = os.path.join(project_folder, "findings.txt")
+
     with open(report_file, "w") as report:
         report.write("AWS IAM Security Audit Report\n")
         report.write("=" * 35 + "\n\n")
+        report.write(f"Total Users: {summary['total']}\n")
+        report.write(f"High Risk Users: {summary['high']}\n")
+        report.write(f"Medium Risk Users: {summary['medium']}\n")
+        report.write(f"Low Risk Users: {summary['low']}\n\n")
+        report.write("Findings:\n")
+        report.write("-" * 20 + "\n")
         for finding in findings:
             report.write(finding + "\n")
+
     print("\nAudit Complete")
-    print(f"Total Findings: {len(findings)}")
+    print(f"Total Users: {summary['total']}")
+    print(f"High Risk Users: {summary['high']}")
+    print(f"Medium Risk Users: {summary['medium']}")
+    print(f"Low Risk Users: {summary['low']}")
     print("Report saved to findings.txt")
+
 users = load_users()
-results = audit_users(users)
-create_report(results)
+findings, summary = audit_users(users)
+create_report(findings, summary)
