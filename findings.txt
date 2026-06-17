@@ -9,6 +9,8 @@ Low Risk Users: 2
 Findings:
 --------------------
 [HIGH RISK] admin-user has Administrator access
+[WARNING] admin-user password is 120 days old
 [LOW RISK] developer1 has Developer access
 [LOW RISK] intern1 has ReadOnly access
 [MEDIUM RISK] power-user has PowerUser access
+[WARNING] power-user password is 95 days old

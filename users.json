@@ -1,18 +1,22 @@
 [
     {
         "username": "admin-user",
-        "role": "Administrator"
+        "role": "Administrator",
+        "password_age": 120
     },
     {
         "username": "developer1",
-        "role": "Developer"
+        "role": "Developer",
+        "password_age": 45
     },
     {
         "username": "intern1",
-        "role": "ReadOnly"
+        "role": "ReadOnly",
+        "password_age": 30
     },
     {
         "username": "power-user",
-        "role": "PowerUser"
+        "role": "PowerUser",
+        "password_age": 95
     }
 ]

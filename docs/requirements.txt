@@ -1,1 +1,2 @@
-
+# No external dependencies currently required.
+# Uses Python standard library only.
