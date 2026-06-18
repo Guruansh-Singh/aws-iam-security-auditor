@@ -14,6 +14,7 @@ def audit_users(users):
         username = user["username"]
         role = user["role"]
         password_age = user["password_age"]
+        mfa_enabled = user["mfa_enabled"]
         if role == "Administrator":
             findings.append(f"[HIGH RISK] {username} has Administrator access")
             high_risk += 1
@@ -25,6 +26,9 @@ def audit_users(users):
             low_risk += 1
         if password_age > 90:
             findings.append(f"[WARNING] {username} password is {password_age} days old")
+
+        if not mfa_enabled:
+            findings.append(f"[HIGH RISK] {username} does not have MFA enabled")
     summary = {
         "high": high_risk,
         "medium": medium_risk,

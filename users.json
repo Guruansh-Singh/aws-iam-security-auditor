@@ -2,21 +2,25 @@
     {
         "username": "admin-user",
         "role": "Administrator",
-        "password_age": 120
+        "password_age": 120,
+        "mfa_enabled": false
     },
     {
         "username": "developer1",
         "role": "Developer",
-        "password_age": 45
+        "password_age": 45,
+        "mfa_enabled": true
     },
     {
         "username": "intern1",
         "role": "ReadOnly",
-        "password_age": 30
+        "password_age": 30,
+        "mfa_enabled": true
     },
     {
         "username": "power-user",
         "role": "PowerUser",
-        "password_age": 95
+        "password_age": 95,
+        "mfa_enabled": false
     }
 ]
